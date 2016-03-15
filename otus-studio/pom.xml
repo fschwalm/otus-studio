@@ -5,7 +5,7 @@
     <name>Otus Studio</name>
 
     <parent>
-        <groupId>br.org.studio</groupId>
+        <groupId>br.org.otus.studio</groupId>
         <artifactId>studio-root</artifactId>
         <version>0.17.21-SNAPSHOT</version>
         <relativePath>../studio-root/pom.xml</relativePath>
