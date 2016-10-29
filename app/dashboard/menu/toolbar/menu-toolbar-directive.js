@@ -1,17 +1,17 @@
 (function() {
-    'use strict';
+  'use strict';
 
-    angular
-        .module('studio.dashboard')
-        .directive('otusToolbar', otusToolbar);
+  angular
+    .module('studio.dashboard')
+    .directive('otusToolbar', otusToolbar);
 
-    function otusToolbar() {
-        var ddo = {
-            templateUrl: 'app/dashboard/menu/toolbar/menu-toolbar.html',
-            retrict: 'E'
-        };
+  function otusToolbar() {
+    var ddo = {
+      templateUrl: 'app/dashboard/menu/toolbar/menu-toolbar.html',
+      retrict: 'E'
+    };
 
-        return ddo;
-    }
+    return ddo;
+  }
 
 }());

@@ -1,39 +1,41 @@
 (function() {
-    'use strict';
+  'use strict';
 
-    angular
-        .module('surveyTemplates')
-        .service('SelectedSurveyTemplatesManagementService', SelectedSurveyTemplatesManagementService);
+  angular
+    .module('surveyTemplates')
+    .service('SelectedSurveyTemplatesManagementService', SelectedSurveyTemplatesManagementService);
 
-    function SelectedSurveyTemplatesManagementService() {
-        var self = this;
-        self.selectedSurveyTemplates = [];
+  function SelectedSurveyTemplatesManagementService() {
+    var self = this;
 
-        self.selectSurveyTemplate = selectSurveyTemplate;
-        self.removeSurveyTemplate = removeSurveyTemplate;
-        self.hasSelectedSurveyTemplate = hasSelectedSurveyTemplate;
-        self.hasOnlyOneSelectedSurveyTemplate = hasOnlyOneSelectedSurveyTemplate;
+    self.selectedSurveyTemplates = [];
 
-        function selectSurveyTemplate(template) {
-            self.selectedSurveyTemplates.push(template);
-        }
+    // Public methods
+    self.selectSurveyTemplate = selectSurveyTemplate;
+    self.removeSurveyTemplate = removeSurveyTemplate;
+    self.hasSelectedSurveyTemplate = hasSelectedSurveyTemplate;
+    self.hasOnlyOneSelectedSurveyTemplate = hasOnlyOneSelectedSurveyTemplate;
 
-        function removeSurveyTemplate(template) {
-            self.selectedSurveyTemplates.splice(_getSelectedTemplateIndex(template), 1);
-        }
-
-        function hasSelectedSurveyTemplate() {
-            return self.selectedSurveyTemplates.length !== 0;
-        }
-
-        function hasOnlyOneSelectedSurveyTemplate() {
-            return self.selectedSurveyTemplates.length === 1;
-        }
-
-        /* Private methods */
-        function _getSelectedTemplateIndex(template) {
-            return self.selectedSurveyTemplates.indexOf(template);
-        }
+    function selectSurveyTemplate(template) {
+      self.selectedSurveyTemplates.push(template);
     }
+
+    function removeSurveyTemplate(template) {
+      self.selectedSurveyTemplates.splice(_getSelectedTemplateIndex(template), 1);
+    }
+
+    function hasSelectedSurveyTemplate() {
+      return self.selectedSurveyTemplates.length !== 0;
+    }
+
+    function hasOnlyOneSelectedSurveyTemplate() {
+      return self.selectedSurveyTemplates.length === 1;
+    }
+
+    /* Private methods */
+    function _getSelectedTemplateIndex(template) {
+      return self.selectedSurveyTemplates.indexOf(template);
+    }
+  }
 
 })();

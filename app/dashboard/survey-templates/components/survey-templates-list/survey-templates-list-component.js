@@ -1,27 +1,27 @@
 (function() {
-    'use strict';
+  'use strict';
 
-    angular
-        .module('surveyTemplates')
-        .component('surveyTemplatesList', {
-            templateUrl: 'app/dashboard/survey-templates/components/survey-templates-list/survey-templates-list.html',
-            controller: SurveyTemplateControllerList,
-        });
+  angular
+    .module('surveyTemplates')
+    .component('surveyTemplatesList', {
+      templateUrl: 'app/dashboard/survey-templates/components/survey-templates-list/survey-templates-list.html',
+      controller: SurveyTemplateControllerList,
+    });
 
-    SurveyTemplateControllerList.$inject = ['SurveyTemplateManagerService'];
+  SurveyTemplateControllerList.$inject = ['SurveyTemplateManagerService'];
 
-    function SurveyTemplateControllerList(SurveyTemplateManagerService) {
-        var self = this;
+  function SurveyTemplateControllerList(SurveyTemplateManagerService) {
+    var self = this;
 
-        self.getSurveyTemplatesList = getSurveyTemplatesList;
+    self.getSurveyTemplatesList = getSurveyTemplatesList;
 
-        function getSurveyTemplatesList() {
-            return SurveyTemplateManagerService.surveyTemplates;
-        }
-
-        self.$onInit = function() {
-            SurveyTemplateManagerService.initializeSurveyTemplateList();
-        };
+    function getSurveyTemplatesList() {
+      return SurveyTemplateManagerService.surveyTemplates;
     }
+
+    self.$onInit = function() {
+      SurveyTemplateManagerService.initializeSurveyTemplateList();
+    };
+  }
 
 })();

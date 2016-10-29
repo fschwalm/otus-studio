@@ -2,7 +2,7 @@
 
   angular
     .module('studio')
-    .config(['$stateProvider', '$urlRouterProvider', '$locationProvider', stateConfiguration])
+    .config(stateConfiguration)
     .constant('APP_STATE', {
       'HOME': 'home',
       'SURVEY_TEMPLATES': 'survey-templates',
@@ -11,8 +11,9 @@
       'LOGIN': 'login'
     });
 
-  function stateConfiguration($stateProvider, $urlRouterProvider, $locationProvider) {
+  stateConfiguration.$inject = ['$stateProvider', '$urlRouterProvider', '$locationProvider'];
 
+  function stateConfiguration($stateProvider, $urlRouterProvider, $locationProvider) {
     var dashboardMenu = 'app/dashboard/menu/dashboard-menu.html';
 
     $stateProvider
@@ -89,34 +90,38 @@
             templateUrl: 'app/editor/ui/main/main-container.html',
             controller: 'MainContainerController as mainContainer',
             resolve: {
-              editor: function load($stateParams, SurveyEditorService, CrossSessionDatabaseService, $window, $q) {
-                var surveyTemplate_OID = $window.sessionStorage.getItem('surveyTemplate_OID');
-
-                if ($stateParams.template) {
-                  _startEditor($stateParams.template);
-                } else if (surveyTemplate_OID) {
-                  var deferred = $q.defer();
-                  _loadFromIndexedDB();
-                  return deferred.promise;
-                }
-
-                function _loadFromIndexedDB() {
-                  var promise = CrossSessionDatabaseService.findSurveyTemplateByOID(surveyTemplate_OID);
-                  promise.then(function(result) {
-                    $stateParams.template = result.template;
-                    _startEditor($stateParams.template);
-                    deferred.resolve(true);
-                  });
-                }
-
-                function _startEditor(surveyTemplate) {
-                  SurveyEditorService.startEditorWithSurveyTemplate(surveyTemplate);
-                }
-              }
+              editor: load
             }
           }
         }
       });
+
+    load.$inject = ['$stateParams', 'SurveyEditorService', 'CrossSessionDatabaseService', '$window', '$q'];
+
+    function load($stateParams, SurveyEditorService, CrossSessionDatabaseService, $window, $q) {
+      var surveyTemplate_OID = $window.sessionStorage.getItem('surveyTemplate_OID');
+
+      if ($stateParams.template) {
+        _startEditor($stateParams.template);
+      } else if (surveyTemplate_OID) {
+        var deferred = $q.defer();
+        _loadFromIndexedDB();
+        return deferred.promise;
+      }
+
+      function _loadFromIndexedDB() {
+        var promise = CrossSessionDatabaseService.findSurveyTemplateByOID(surveyTemplate_OID);
+        promise.then(function(result) {
+          $stateParams.template = result.template;
+          _startEditor($stateParams.template);
+          deferred.resolve(true);
+        });
+      }
+
+      function _startEditor(surveyTemplate) {
+        SurveyEditorService.startEditorWithSurveyTemplate(surveyTemplate);
+      }
+    }
 
     /* Default state (route)
      * $locationProvider.html5Mode(true);
