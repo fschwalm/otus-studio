@@ -28,7 +28,7 @@
           }
         ]
       },
-      startPath: 'otus-studio'
+      startPath: 'otus-studio/app/index.html#/login'
     });
 
     gulp.watch([

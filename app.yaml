@@ -1,0 +1,15 @@
+application: studio-tcc
+runtime: php55
+api_version: 1
+version: web
+
+handlers:
+- url: /
+  static_files: app/index.html
+  upload: index.html
+
+- url: /otus-studio/node_modules
+  static_dir: node_modules
+
+- url: /otus-studio/app/
+  static_dir: app
