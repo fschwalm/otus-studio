@@ -1,0 +1,21 @@
+application: studio-minified
+runtime: php55
+api_version: 1
+version: web
+
+handlers:
+- url: /
+  static_files: index.html
+  upload: index.html
+
+- url: /otus-studio/node_modules
+  static_dir: node_modules
+
+- url: /otus-studio/scripts
+  static_dir: scripts
+
+- url: /otus-studio/assets
+  static_dir: assets
+
+- url: /otus-studio/app/
+  static_dir: app

@@ -4,12 +4,15 @@
   var browserSync = require('browser-sync').create();
   var browserSyncSpa = require('browser-sync-middleware-spa');
   var bump = require('gulp-bump');
+  var gulpif = require('gulp-if');
   var uglify = require("gulp-uglify");
   var minify = require('gulp-minify');
+  var minifyCss = require('gulp-minify-css');
   var concat = require('gulp-concat');
   var sonar = require('gulp-sonar');
   var war = require('gulp-war');
   var zip = require('gulp-zip');
+  var useref = require('gulp-useref');
   var packageJson = require('./package.json');
   var baseDir = __dirname + '/app/index.html';
 
@@ -99,6 +102,36 @@
       }))
       .pipe(zip('otus-studio.war'))
       .pipe(gulp.dest("./dist"));
+  });
+
+  gulp.task('useref', function() {
+    return gulp.src('app/index.html')
+      .pipe(useref({
+        transformPath: function(filePath) {
+          return filePath.replace('app', '');
+        }
+      }))
+      .pipe(gulpif('*.css', minifyCss()))
+      .pipe(gulpif('*.js', uglify()))
+      .pipe(gulp.dest('dist/otus-studio'));
+  });
+
+  gulp.task('deploy', ['useref'], function() {
+    browserSync.init({
+      server: {
+        baseDir: '../',
+        middleware: [
+          //browserSyncSpa(/^[^\.]+$/, baseDir),
+
+          function(req, res, next) {
+            res.setHeader('Access-Control-Allow-Origin', '*');
+            res.setHeader('Access-Control-Allow-Headers', '*');
+            next();
+          }
+        ]
+      },
+      startPath: 'otus-studio/dist/otus-studio/'
+    });
   });
 
 }());

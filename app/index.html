@@ -10,13 +10,14 @@
   <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,400italic" rel="stylesheet">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link href="app/assets/img/coruja_construtora.png" rel="icon" />
-  <link href="node_modules/otus-preview-js/dist/otus-preview-js/css/otus-player-min.css" rel="stylesheet">
   <link href="node_modules/angular-material/angular-material.min.css" rel="stylesheet" />
+  <link href="node_modules/md-color-picker/dist/mdColorPicker.min.css" rel="stylesheet">
   <!-- assets -->
+  <!-- build:css assets/app-styles-min.css -->
   <link href="app/assets/styles.css" rel="stylesheet" />
+  <link href="node_modules/otus-preview-js/dist/otus-preview-js/css/otus-player-min.css" rel="stylesheet">
   <link href="app/assets/login-page.css" rel="stylesheet" />
-
-
+  <!-- endbuild -->
 
   <title>Otus Studio</title>
 </head>
@@ -24,39 +25,21 @@
 <body layout="row" md-theme="layoutTheme">
   <div layout="row" class="md-body-2" flex ui-view="system-wrap"></div>
 </body>
-
-/**
- *
- *
- *
- *
- *          CORE APP
- *
- *
- *
- *
- */
-
-
-
+<!-- ************************************* SigmaJS ************************************* -->
+<script src="node_modules/sigma/build/sigma.min.js"></script>
+<!-- <script src="node_modules/sigma/plugins/sigma.renderers.parallelEdges/sigma.canvas.edges.curve.js"></script>
+<script src="node_modules/sigma/plugins/sigma.renderers.parallelEdges/sigma.canvas.edges.curvedArrow.js"></script>
+<script src="node_modules/sigma/plugins/sigma.renderers.parallelEdges/sigma.canvas.edgehovers.curve.js"></script>
+<script src="node_modules/sigma/plugins/sigma.renderers.parallelEdges/sigma.canvas.edgehovers.curvedArrow.js"></script> -->
 
 <!-- Script imports -->
 <!-- ************************************* jQuery ************************************* -->
 <script src="node_modules/jquery/dist/jquery.min.js"></script>
 
-<!-- ************************************* SigmaJS ************************************* -->
-<script src="node_modules/sigma/build/sigma.min.js"></script>
-<script src="node_modules/sigma/plugins/sigma.renderers.parallelEdges/sigma.canvas.edges.curve.js"></script>
-<script src="node_modules/sigma/plugins/sigma.renderers.parallelEdges/sigma.canvas.edges.curvedArrow.js"></script>
-<script src="node_modules/sigma/plugins/sigma.renderers.parallelEdges/sigma.canvas.edgehovers.curve.js"></script>
-<script src="node_modules/sigma/plugins/sigma.renderers.parallelEdges/sigma.canvas.edgehovers.curvedArrow.js"></script>
-
 <!-- ************************************* Angular ************************************* -->
 <script src="node_modules/angular/angular.min.js"></script>
 <script src="node_modules/angular-resource/angular-resource.min.js"></script>
 <script src="node_modules/angular-ui-router/release/angular-ui-router.min.js"></script>
-
-<script src="node_modules/angular-bind-html-compile-ci-dev/angular-bind-html-compile.js"></script>
 
 <!-- ************************************* Angular Material & Dependencies ************************************* -->
 <script src="node_modules/angular-material/angular-material.min.js"></script>
@@ -99,6 +82,12 @@
 <!-- ************************************** OtusJS Model************************************** -->
 <script src="node_modules/otus-model-js/dist/otus-model.min.js"></script>
 
+<!-- TEXT EDITION MENU -->
+<script src="node_modules/tinycolor2/dist/tinycolor-min.js"></script>
+<script src="node_modules/md-color-picker/dist/mdColorPicker.min.js"></script>
+
+<!-- Application Shell -->
+<!-- build:js scripts/application-shell-min.js -->
 <script src="app/app.js"></script>
 
 <!-- app.config -->
@@ -106,23 +95,24 @@
 <script src="app/config/locale-configuration.js"></script>
 <script src="app/config/state-configuration.js"></script>
 <script src="app/config/theme-configuration.js"></script>
+<!-- endbuild -->
 
+<!-- Login Module -->
+<!-- build:js scripts/login-module-min.js -->
+<!-- ************************************** Studio Login ************************************** -->
+<script src="app/authenticator/authenticator-module.js"></script>
+<script src="app/authenticator/login-controller.js"></script>
+<script src="app/authenticator/api/authentication-service.js"></script>
+<!-- endbuild -->
+<!-- END OTUSJS PLAYER -->
+
+<!-- Dashboard Module -->
+<!-- build:js scripts/dashboard-module-min.js -->
 <!-- ************************************** Studio Dashboard ************************************** -->
 <script src="app/dashboard/dashboard-module.js"></script>
 
 <!-- API -->
 <script src="app/dashboard/api/dashboard-state-service.js"></script>
-
-<!-- TEXT EDITION MENU -->
-<link href="node_modules/md-color-picker/dist/mdColorPicker.min.css" rel="stylesheet">
-<script src="node_modules/angular-cookies/angular-cookies.js"></script>
-<script src="node_modules/tinycolor2/dist/tinycolor-min.js"></script>
-<script src="node_modules/md-color-picker/dist/mdColorPicker.min.js"></script>
-<script src="app/shared/text-edition-menu/text-edition-module.js"></script>
-<script src="app/shared/text-edition-menu/text-edition-menu-directive.js"></script>
-<script src="app/shared/text-edition-menu/text-edition-controller.js"></script>
-<script src="app/shared/text-edition-menu/color/color-picker-controller.js"></script>
-<script src="app/shared/text-edition-menu/color/color-picker-context.js"></script>
 
 <!-- DIALOG -->
 <script src="app/dashboard/dialog/logout/logout-dialog-service.js"></script>
@@ -152,8 +142,13 @@
 <script src="app/dashboard/survey-templates/directives/survey-template-upload-service.js"></script>
 <script src="app/dashboard/survey-templates/directives/survey-template-upload-directive.js"></script>
 <script src="app/dashboard/survey-templates/directives/survey-templates-export-directive.js"></script>
+<!-- endbuild -->
 
 <!-- ************************************** Studio Editor ************************************** -->
+<!-- build:js scripts/editor-module-min.js -->
+<!-- DEPENDECIES -->
+<script src="node_modules/angular-bind-html-compile-ci-dev/angular-bind-html-compile.js"></script>
+
 <script src="app/editor/editor-module.js"></script>
 
 <!-- API -->
@@ -192,6 +187,13 @@
 
 <!-- IN-SESSION -->
 <script src="app/editor/database/in-session/in-session-database-factory.js"></script>
+
+<!-- TEXT EDITION MENU -->
+<script src="app/shared/text-edition-menu/text-edition-module.js"></script>
+<script src="app/shared/text-edition-menu/text-edition-menu-directive.js"></script>
+<script src="app/shared/text-edition-menu/text-edition-controller.js"></script>
+<script src="app/shared/text-edition-menu/color/color-picker-controller.js"></script>
+<script src="app/shared/text-edition-menu/color/color-picker-context.js"></script>
 
 <!-- ************************************** Studio Editor UI ************************************** -->
 <script src="app/editor/ui/editor-ui-module.js"></script>
@@ -427,8 +429,14 @@
 
 <!-- ************************************** Studio Preview ************************************** -->
 <script src="app/preview/preview-module.js"></script>
+<!-- EDITION-PREVIEW -->
+<script src="app/preview/preview-controller.js"></script>
+<script src="app/preview/edition-preview/edition-preview-service.js"></script>
+<!-- endbuild -->
 
 <!-- NAVIGATION-BUILDER -->
+<!-- build:js scripts/navigation-module-min.js -->
+<!-- MODULE -->
 <script src="app/navigation-builder/navigation-builder-module.js"></script>
 <!-- API -->
 <script src="app/navigation-builder/api/navigation-builder-service.js"></script>
@@ -469,19 +477,10 @@
 <script src="app/navigation-builder/route/editor/route-editor-component.js"></script>
 <script src="app/navigation-builder/route/editor/rule-creator-component.js"></script>
 <script src="app/navigation-builder/route/editor/rule-editor-component.js"></script>
-
-<!-- EDITION-PREVIEW -->
-<script src="app/preview/preview-controller.js"></script>
-<script src="app/preview/edition-preview/edition-preview-service.js"></script>
+<!-- endbuild -->
 
 <!-- OTUS-SURVEY-PREVIEW -->
 <script src="app/preview/otus-survey-preview/otus-survey-preview-generator-directive.js"></script>
-
-<!-- ************************************** Studio Login ************************************** -->
-<!-- app.login -->
-<script src="app/authenticator/authenticator-module.js"></script>
-<script src="app/authenticator/login-controller.js"></script>
-<script src="app/authenticator/api/authentication-service.js"></script>
 
 <!-- ************************************** Otus Domain Client ************************************** -->
 <script src="node_modules/otus-domain-client/dist/otus-domain-client-min.js"></script>
@@ -492,5 +491,7 @@
 
 <!-- ************************************** Otus Validation ************************************** -->
 <script src="node_modules/otus-validation-js/dist/otus-validation-min.js"></script>
+
+
 
 </html>

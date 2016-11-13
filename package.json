@@ -66,6 +66,7 @@
         "gulp-useref": "^3.0.4",
         "angular-mocks": "^1.4.9",
         "browser-sync": "2.11.2",
+        "gulp-minify-css": "^1.2.4",
         "browser-sync-middleware-spa": "^1.0.0",
         "concurrently": "^1.0.0",
         "jasmine-core": "^2.4.1",
@@ -77,6 +78,7 @@
         "karma-phantomjs-launcher": "^0.2.3",
         "phantomjs": ">=1.9",
         "phantomjs-prebuilt": "^2.1.2",
-        "gulp-bump": "2.1.0"
+        "gulp-bump": "2.1.0",
+        "gulp-if": "^2.0.1"
     }
 }

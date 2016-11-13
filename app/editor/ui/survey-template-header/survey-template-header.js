@@ -1,25 +1,27 @@
 (function() {
-    'use strict';
+  'use strict';
 
-    angular
-        .module('editor.ui')
-        .component('otusSurveyTemplateHeader', {
-            templateUrl: 'app/editor/ui/survey-template-header/survey-template-header-template.html',
+  angular
+    .module('editor.ui')
+    .component('otusSurveyTemplateHeader', {
+      templateUrl: 'app/editor/ui/survey-template-header/survey-template-header-template.html',
+      controller: Controller
+    });
 
-            controller: function(WorkspaceService) {
-                var self = this;
+  Controller.$inject = ['WorkspaceService'];
 
-                self.name = '';
-                self.acronym = '';
-                self.identity = {};
+  function Controller(WorkspaceService) {
+    var self = this;
 
-                self.$onInit = function() {
-                    self.identity = WorkspaceService.getSurvey().identity;
-                    self.name = self.identity.name;
-                    self.acronym = self.identity.acronym;
-                };
+    self.name = '';
+    self.acronym = '';
+    self.identity = {};
 
-            }
+    self.$onInit = function() {
+      self.identity = WorkspaceService.getSurvey().identity;
+      self.name = self.identity.name;
+      self.acronym = self.identity.acronym;
+    };
+  }
 
-        });
 }());

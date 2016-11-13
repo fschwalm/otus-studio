@@ -3,14 +3,14 @@
 
   angular
     .module('otusjs.studio.navigationBuilder')
-    .service('otusjs.studio.navigationBuilder.NavigationBuilderScopeService', service);
+    .service('otusjs.studio.navigationBuilder.NavigationBuilderScopeService', Service);
 
-  service.$injects = [
+  Service.$inject = [
     'NBEVENTS',
     'NBMESSAGES'
-  ]
+  ];
 
-  function service(NBEVENTS, NBMESSAGES) {
+  function Service(NBEVENTS, NBMESSAGES) {
     var self = this;
     var _scope = null;
     var _moduleData = {};

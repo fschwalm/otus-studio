@@ -48,8 +48,9 @@
       });
     }
   }
+  DialogController.$inject = ['$mdDialog'];
 
-  function DialogController(message) {
+  function DialogController($mdDialog, message) {
     var self = this;
 
     self.message = message;

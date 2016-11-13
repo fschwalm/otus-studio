@@ -34,7 +34,7 @@
       $mdDialog.show(_dialogSettings);
     }
   }
-
+  DialogController.$inject = ['$mdDialog'];
   function DialogController($mdDialog, message) {
     var self = this;
 
