@@ -1,11 +1,11 @@
-application: studio-minified
+application: studio-lazy
 runtime: php55
 api_version: 1
 version: web
 
 handlers:
 - url: /
-  static_files: index.html
+  static_files: app/index.html
   upload: index.html
 
 - url: /otus-studio/node_modules

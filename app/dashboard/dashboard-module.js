@@ -1,6 +1,12 @@
 (function() {
-    'use strict';
+  'use strict';
+
+  define([
+    'angular'
+  ], function(angular) {
 
     angular.module('studio.dashboard', []);
+
+  });
 
 }());

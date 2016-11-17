@@ -1,8 +1,10 @@
 (function() {
 
-  angular
-    .module('studio')
-    .config(localeConfiguration);
+  define([
+    './../app'
+  ],function(app){
+
+  app.config(localeConfiguration);
 
   localeConfiguration.$inject = ['$mdDateLocaleProvider'];
 
@@ -35,5 +37,6 @@
       }
     };
   }
+});
 
 }());

@@ -1,6 +1,13 @@
 (function() {
-    'use strict';
+  'use strict';
 
-    angular.module('studio.authenticator', []);
+  define([
+    'angular'
+  ], function(angular) {
+
+    angular
+      .module('studio.authenticator', []);
+
+  });
 
 }());

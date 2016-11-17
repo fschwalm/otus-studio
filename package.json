@@ -54,7 +54,9 @@
         "md-color-picker" : "0.2.6",
         "angular-cookies" : "1.5.8",
         "sigma": "1.1.0",
-        "cytoscape": "2.7.7"
+        "cytoscape": "2.7.7",
+        "oclazyload": "^1.0.9",
+        "requirejs": "^2.3.2"
     },
     "devDependencies": {
         "gulp-sonar": "2.1.0",

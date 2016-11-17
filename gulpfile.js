@@ -31,7 +31,7 @@
           }
         ]
       },
-      startPath: 'otus-studio'
+      startPath: 'otus-studio/app'
     });
 
     gulp.watch([
@@ -116,7 +116,8 @@
       .pipe(gulp.dest('dist/otus-studio'));
   });
 
-  gulp.task('deploy', ['useref'], function() {
+  // gulp.task('deploy', ['useref'], function() {
+  gulp.task('deploy', function() {
     browserSync.init({
       server: {
         baseDir: '../',
@@ -130,7 +131,8 @@
           }
         ]
       },
-      startPath: 'otus-studio/dist/otus-studio/'
+      // startPath: 'otus-studio/dist/otus-studio/'
+      startPath: 'otus-studio/'
     });
   });
 

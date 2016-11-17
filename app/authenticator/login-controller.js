@@ -5,15 +5,15 @@
         .module('studio.authenticator')
         .controller('LoginController', LoginController);
 
-    LoginController.$inject = ['$scope', 'DashboardStateService', 'AuthenticationService'];
+    LoginController.$inject = ['$scope', 'DashboardStateService'];
 
-    function LoginController($scope, DashboardStateService, AuthenticationService) {
+    function LoginController($scope, DashboardStateService) {
         var self = this;
         self.authenticate = authenticate;
         self.visitAccess = visitAccess;
 
         function authenticate(user) {
-            AuthenticationService.login(user);
+          DashboardStateService.goToHome();
         }
 
         function visitAccess() {
