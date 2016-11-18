@@ -31,7 +31,8 @@
         function execute(ruleData, route) {
             var rule = AddRuleService.execute(ruleData, route);
 
-            WorkspaceService.workspace.isdb.userEdits.store(self);
+            //WorkspaceService.workspace.isdb.userEdits.store(self);
+
             WorkspaceService.saveWork();
 
             return rule;

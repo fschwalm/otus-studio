@@ -28,7 +28,8 @@
         self.execute = execute;
 
         function execute(data) {
-            WorkspaceService.workspace.isdb.userEdits.store(self);
+            //WorkspaceService.workspace.isdb.userEdits.store(self);
+
             WorkspaceService.saveWork();
         }
     }

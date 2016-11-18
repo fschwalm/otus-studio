@@ -30,7 +30,8 @@
 
         function execute(eventSource) {
             RemoveMetadataOptionService.execute(eventSource.getItem());
-            WorkspaceService.workspace.isdb.userEdits.store(self);
+            //WorkspaceService.workspace.isdb.userEdits.store(self);
+
             WorkspaceService.saveWork();
         }
     }

@@ -31,7 +31,8 @@
         function execute(conditionName, route) {
             var routeCondition = AddRouteConditionService.execute(conditionName, route);
 
-            WorkspaceService.workspace.isdb.userEdits.store(self);
+            //WorkspaceService.workspace.isdb.userEdits.store(self);
+
             WorkspaceService.saveWork();
 
             return routeCondition;

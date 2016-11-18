@@ -8,10 +8,10 @@
   DashboardMenuController.$inject = [
     'DashboardStateService',
     '$mdSidenav',
-    'AuthenticationService'
+    // 'AuthenticationService'
   ];
 
-  function DashboardMenuController(DashboardStateService, $mdSidenav, AuthenticationService) {
+  function DashboardMenuController(DashboardStateService, $mdSidenav) {
     var self = this;
 
     /* Public interface */
@@ -45,7 +45,8 @@
     }
 
     function logout() {
-      AuthenticationService.logout();
+      DashboardStateService.logout();
+      // AuthenticationService.logout();
     }
   }
 

@@ -105,7 +105,7 @@
   });
 
   gulp.task('useref', function() {
-    return gulp.src('app/index.html')
+    return gulp.src('app/index-bkp.html')
       .pipe(useref({
         transformPath: function(filePath) {
           return filePath.replace('app', '');

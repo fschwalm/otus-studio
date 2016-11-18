@@ -39,7 +39,8 @@
             SheetContentService.loadQuestion(item);
             $rootScope.$broadcast('item.add', item);
             WorkspaceService.workspace.currentItem = item;
-            WorkspaceService.workspace.isdb.userEdits.store(self);
+            //WorkspaceService.workspace.isdb.userEdits.store(self);
+
             WorkspaceService.saveWork();
         }
 

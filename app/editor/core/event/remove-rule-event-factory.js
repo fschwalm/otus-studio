@@ -30,7 +30,8 @@
 
         function execute(rule, route) {
             RemoveRuleService.execute(rule, route);
-            WorkspaceService.workspace.isdb.userEdits.store(self);
+            //WorkspaceService.workspace.isdb.userEdits.store(self);
+
             WorkspaceService.saveWork();
         }
     }

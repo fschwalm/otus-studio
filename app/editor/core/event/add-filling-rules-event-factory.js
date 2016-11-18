@@ -29,7 +29,8 @@
 
         function execute(questionReference, validator) {
             var option = AddFillingRulesService.execute(questionReference, validator);
-            WorkspaceService.workspace.isdb.userEdits.store(self);
+            //WorkspaceService.workspace.isdb.userEdits.store(self);
+
             WorkspaceService.saveWork();
             return option;
         }

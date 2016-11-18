@@ -36,6 +36,12 @@ require.config({
                   //FallBack
                   'https://cdnjs.cloudflare.com/ajax/libs/oclazyload/1.0.9/ocLazyLoad.min'],
 
+    'ocLazyLoad-require': 'node_modules/oclazyload/dist/ocLazyLoad.require.min',
+
+    /* Tinny Color */
+    // 'tiny': '',
+
+
     /* Internal Dependecies */
 
     'login-controller': 'app/authenticator/login-controller',
@@ -67,10 +73,10 @@ require.config({
     'angular-material': {
       deps: ['angular-aria', 'angular-animate', 'angular-messages']
     },
-    'loki-angular': {
-      deps: ['angular', 'loki']
-    },
     'ocLazyLoad': {
+      deps: ['angular']
+    },
+    'ocLazyLoad-require': {
       deps: ['angular']
     },
     'indexedb': {

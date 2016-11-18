@@ -30,7 +30,8 @@
 
         function execute(routeData) {
             var route = AddRouteService.execute(routeData);
-            WorkspaceService.workspace.isdb.userEdits.store(self);
+            //WorkspaceService.workspace.isdb.userEdits.store(self);
+
             WorkspaceService.saveWork();
             return route;
         }

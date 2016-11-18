@@ -5,16 +5,16 @@
         .module('editor.database')
         .factory('InSessionDatabaseFactory', InSessionDatabaseFactory);
 
-    InSessionDatabaseFactory.$inject = ['Loki'];
+    // InSessionDatabaseFactory.$inject = ['Loki'];
 
-    function InSessionDatabaseFactory(Loki) {
+    function InSessionDatabaseFactory() {
         var self = this;
 
         /* Public interface */
         self.create = create;
 
         function create() {
-            return new InSessionDatabase(Loki);
+            // return new InSessionDatabase(Loki);
         }
 
         return self;
