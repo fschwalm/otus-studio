@@ -1,14 +1,5 @@
 (function() {
 
-  define([
-    'angular',
-    'angular-material',
-    'angular-messages',
-    'angular-animate',
-    'uiRouter',
-    'otus-domain-client',
-  ], function(angular) {
-
     angular.module('dependencies', [
       /* Angular modules */
       'ngMaterial',
@@ -20,9 +11,7 @@
       // 'indexedDB',
       // 'immutable',
       // 'ui.utils.masks',
-      'otus.domain.client',
       // 'otus.textEdition'
     ]);
-  });
 
 }());

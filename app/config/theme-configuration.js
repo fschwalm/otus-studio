@@ -1,10 +1,6 @@
 (function() {
 
-  define([
-    'app/app'
-  ], function(app) {
-
-    app.config(themeConfiguration);
+    angular.module('studio').config(themeConfiguration);
 
     themeConfiguration.$inject = ['$mdThemingProvider', '$mdIconProvider'];
 
@@ -27,6 +23,5 @@
       /* 24 is the size default of icons */
       $mdIconProvider.defaultIconSet('app/assets/img/icons/mdi.svg', 24);
     }
-  });
 
 }());

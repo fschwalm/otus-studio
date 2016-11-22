@@ -105,7 +105,7 @@
   });
 
   gulp.task('useref', function() {
-    return gulp.src('app/index-bkp.html')
+    return gulp.src('app/index.html')
       .pipe(useref({
         transformPath: function(filePath) {
           return filePath.replace('app', '');
@@ -113,7 +113,7 @@
       }))
       .pipe(gulpif('*.css', minifyCss()))
       .pipe(gulpif('*.js', uglify()))
-      .pipe(gulp.dest('dist/otus-studio'));
+      .pipe(gulp.dest(''));
   });
 
   // gulp.task('deploy', ['useref'], function() {
